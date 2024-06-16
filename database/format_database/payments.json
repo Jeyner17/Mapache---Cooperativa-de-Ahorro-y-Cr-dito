@@ -1,0 +1,22 @@
+{
+    "_id": {
+      "type": "ObjectId",
+      "description": "ID del pago, clave primaria"
+    },
+    "loan_id": {
+      "type": "ObjectId",
+      "description": "ID del préstamo al que pertenece el pago"
+    },
+    "monto": {
+      "type": "Number",
+      "description": "Monto del pago"
+    },
+    "tipo": {
+      "type": "String",
+      "description": "Tipo de pago: parcial, total"
+    },
+    "estado": {
+      "type": "String",
+      "description": "Estado del pago: recibido, pendiente"
+    }
+  }

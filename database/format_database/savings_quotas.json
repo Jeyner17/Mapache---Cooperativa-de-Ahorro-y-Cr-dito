@@ -1,0 +1,26 @@
+{
+    "_id": {
+      "type": "ObjectId",
+      "description": "ID de la cuota de ahorro, clave primaria"
+    },
+    "member_id": {
+      "type": "ObjectId",
+      "description": "ID del miembro al que pertenece la cuota de ahorro"
+    },
+    "monto": {
+      "type": "Number",
+      "description": "Monto de la cuota de ahorro"
+    },
+    "fecha_semana": {
+      "type": "String",
+      "description": "Fecha correspondiente a la semana de ahorro"
+    },
+    "estado": {
+      "type": "String",
+      "description": "Estado de la cuota de ahorro: pagada, pendiente"
+    },
+    "fecha_pago": {
+      "type": "Date",
+      "description": "Fecha del pago, si aplica"
+    }
+  }

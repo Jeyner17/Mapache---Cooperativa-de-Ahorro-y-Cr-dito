@@ -1,0 +1,56 @@
+{
+    "_id": {
+      "type": "ObjectId",
+      "description": "ID del miembro, clave primaria"
+    },
+    "nombre": {
+      "type": "String",
+      "description": "Nombres completos del miembro"
+    },
+    "apellido": {
+        "type": "String",
+        "description": "Apellidos completos del miembro"
+    },
+    "cedula": {
+        "type": "String",
+        "description": "Numero de cedula del miembro"
+    },
+    "email": {
+      "type": "String",
+      "description": "Correo electrónico del miembro"
+    },
+    "direccion": {
+      "type": "Object",
+      "description": "Dirección del miembro",
+      "properties": {
+        "calle": {
+          "type": "String",
+          "description": "Calle de la dirección"
+        },
+        "numero": {
+          "type": "String",
+          "description": "Número de la dirección"
+        },
+        "calle_secundaria": {
+          "type": "String",
+          "description": "Calle secundaria de la dirección"
+        },
+        "ciudad": {
+          "type": "String",
+          "description": "Ciudad de la dirección"
+        }
+      }
+    },
+    "telefono": {
+      "type": "Array",
+      "description": "Números de teléfono del miembro",
+      "items": {
+        "type": "String"
+      }
+    },
+    "estado": {
+      "type": "String",
+      "description": "Estado del miembro: activo, inactivo, suspendido"
+    }
+  }
+

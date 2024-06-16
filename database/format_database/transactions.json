@@ -1,0 +1,26 @@
+{
+    "_id": {
+      "type": "ObjectId",
+      "description": "ID de la transacción, clave primaria"
+    },
+    "savings_account_id": {
+      "type": "ObjectId",
+      "description": "ID de la cuenta de ahorro a la que pertenece la transacción"
+    },
+    "tipo": {
+      "type": "String",
+      "description": "Tipo de transacción: depósito, retiro, transferencia"
+    },
+    "monto": {
+      "type": "Number",
+      "description": "Monto de la transacción"
+    },
+    "descripcion": {
+      "type": "String",
+      "description": "Descripción de la transacción"
+    },
+    "estado": {
+      "type": "String",
+      "description": "Estado de la transacción: completada, pendiente"
+    }
+  }

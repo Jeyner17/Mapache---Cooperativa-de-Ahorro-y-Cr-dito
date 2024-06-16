@@ -1,0 +1,26 @@
+{
+    "_id": {
+      "type": "ObjectId",
+      "description": "ID del préstamo, clave primaria"
+    },
+    "member_id": {
+      "type": "ObjectId",
+      "description": "ID del miembro al que pertenece el préstamo"
+    },
+    "monto": {
+      "type": "Number",
+      "description": "Monto del préstamo"
+    },
+    "interes": {
+      "type": "Number",
+      "description": "Tasa de interés del préstamo"
+    },
+    "plazo": {
+      "type": "Number",
+      "description": "Plazo del préstamo en meses"
+    },
+    "estado": {
+      "type": "String",
+      "description": "Estado del préstamo: aprobado, pendiente, rechazado, pagado"
+    }
+}

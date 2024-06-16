@@ -1,0 +1,18 @@
+{
+    "_id": {
+      "type": "ObjectId",
+      "description": "ID de la cuenta de ahorro, clave primaria"
+    },
+    "numero_cuenta": {
+      "type": "String",
+      "description": "Número de cuenta de la cuenta de ahorro"
+    },
+    "saldo": {
+      "type": "Number",
+      "description": "Saldo actual de la cuenta de ahorro"
+    },
+    "member_id": {
+      "type": "ObjectId",
+      "description": "ID del miembro al que pertenece la cuenta de ahorro"
+    }
+  }
