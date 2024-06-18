@@ -118,7 +118,7 @@
                 $('#telefonos-extra').append('<input type="text" class="form-control mt-2" name="telefono[]" placeholder="Teléfono" required>');
             });
 
-            // Validación de solo letras en nombre y apellido
+            // Validación de solo letras en nombres y apellidos
             $('#nombre, #apellido').on('input', function() {
                 this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
             });
