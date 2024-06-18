@@ -41,7 +41,7 @@
                             <tbody>
                                 @foreach ($savingsAccounts as $account)
                                     <tr>
-                                        <td>{{ $account->member->nombre }}</td>
+                                        <td>{{ $account->member->nombre }} {{ $account->member->apellido }}</td>
                                         <td>{{ $account->numero_cuenta }}</td>
                                         <td>{{ $account->saldo }}</td>
                                         <td>
