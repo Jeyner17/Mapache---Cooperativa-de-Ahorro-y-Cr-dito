@@ -142,7 +142,7 @@
         });
     </script>
 @stop
-
+        
         <div class="card-body">
             @if (isset($member))
                 <form action="{{ route('members.update', ['member' => $member->_id]) }}" method="POST">
