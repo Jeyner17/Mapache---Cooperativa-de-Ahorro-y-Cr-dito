@@ -31,6 +31,7 @@
                     <div class="form-group">
                         <label for="numero_cuenta">Número de Cuenta</label>
                         <input type="text" class="form-control" id="numero_cuenta" name="numero_cuenta" value="{{ old('numero_cuenta', isset($savingsAccount) ? $savingsAccount->numero_cuenta : '') }}" required>
+                        <span class="text-danger" id="error-numero_cuenta" style="display: none;">Solo se permiten números y hasta 10 dígitos.</span>
                     </div>
 
                     <div class="form-group">
@@ -50,8 +51,22 @@
 
 @section('js')
     <script>
-        $(document).ready(function() {
-            // Código JavaScript personalizado si es necesario
+            $(document).ready(function() {
+            function validateAccountNumber(input) {
+                input.value = input.value.replace(/[^0-9]/g, '');
+                if (input.value.length > 10) {
+                    input.value = input.value.slice(0, 10);
+                }
+                if (input.value.length < 10 || /[^0-9]/.test(input.value)) {
+                    $('#error-numero_cuenta').show();
+                } else {
+                    $('#error-numero_cuenta').hide();
+                }
+            }
+
+            $('#numero_cuenta').on('input', function() {
+                validateAccountNumber(this);
+            });
         });
     </script>
 @stop
