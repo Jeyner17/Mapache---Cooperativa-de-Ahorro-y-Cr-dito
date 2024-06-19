@@ -20,12 +20,12 @@
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre', isset($member) ? $member->nombre : '') }}" required>
-                        <span class="text-danger" id="error-nombre" style="display: none;">Solo se permiten letras.</span>
+                       
                         @error('nombre')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-
+                    <span class="text-danger" id="error-nombre" style="display: none;">Solo se permiten letras.<span>
                     <div class="form-group">
                         <label for="apellido">Apellido</label>
                         <input type="text" class="form-control" id="apellido" name="apellido" value="{{ old('apellido', isset($member) ? $member->apellido : '') }}" required>
@@ -38,8 +38,6 @@
                     <div class="form-group">
                         <label for="cedula">Cédula</label>
                         <input type="text" class="form-control" id="cedula" name="cedula" value="{{ old('cedula', isset($member) ? $member->cedula : '') }}" required>
-                        <span class="text-danger" id="error-cedula" style="display: none;">Solo se permiten números y hasta 10 dígitos.</span>
-
                         @error('cedula')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -76,8 +74,6 @@
                     <div class="form-group">
                         <label for="telefono">Teléfono(s)</label>
                         <input type="text" class="form-control" id="telefono" name="telefono[]" placeholder="Teléfono" value="{{ old('telefono.0', isset($member) ? $member->telefono[0] : '') }}" required>
-                        <span class="text-danger" id="error-telefono" style="display: none;">Solo se permiten números y hasta 10 dígitos.</span>
-
                         @error('telefono.*')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -86,7 +82,6 @@
                             @if (isset($member) && count($member->telefono) > 1)
                                 @for ($i = 1; $i < count($member->telefono); $i++)
                                     <input type="text" class="form-control mt-2" name="telefono[]" placeholder="Teléfono" value="{{ old('telefono.'.$i, $member->telefono[$i]) }}" required>
-                                   
                                     @error('telefono.'.$i)
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -126,50 +121,17 @@
             });
 
             // Validación de solo letras en nombre y apellido
-            $('#nombre').on('input', function() {
-                if (/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/.test(this.value)) {
-                    $('#error-nombre').show();
-                } else {
-                    $('#error-nombre').hide();
-                }
-                this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
-            });
-
-            $('#apellido').on('input', function() {
-                if (/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/.test(this.value)) {
-                    $('#error-apellido').show();
-                } else {
-                    $('#error-apellido').hide();
-                }
+            $('#nombre, #apellido').on('input', function() {
                 this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
             });
 
             // Validación de solo números y 10 dígitos en cédula y teléfonos
-        
-            $('#cedula').on('input', function() {
-                if (/[^0-9]/.test(this.value) || this.value.length > 10) {
-                    $('#error-cedula').show();
-                } else {
-                    $('#error-cedula').hide();
-                }
+            $('#cedula, input[name="telefono[]"]').on('input', function() {
                 this.value = this.value.replace(/[^0-9]/g, '');
                 if (this.value.length > 10) {
                     this.value = this.value.slice(0, 10);
                 }
             });
-
-            $(document).on('input', 'input[name="telefono[]"]', function() {
-                if (/[^0-9]/.test(this.value) || this.value.length > 10) {
-                    $('#error-telefono').show();
-                } else {
-                    $('#error-telefono').hide();
-                }
-                this.value = this.value.replace(/[^0-9]/g, '');
-                if (this.value.length > 10) {
-                    this.value = this.value.slice(0, 10);
-                }
-            });
-
         });
     </script>
 @stop
