@@ -12,7 +12,7 @@ class SavingsQuota extends Model
     protected $collection = 'savings_quotas';
 
     protected $fillable = [
-       'member_id', 'monto', 'fecha_semana', 'estado', 
+       'member_id', 'monto', 'fecha_semana', 'estado',
     ];
 
      // Relación con Member
