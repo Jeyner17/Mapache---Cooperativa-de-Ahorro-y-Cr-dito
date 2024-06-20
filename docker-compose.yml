@@ -5,7 +5,7 @@ services:
   configsvr1:
     image: mongo:4.4
     container_name: configsvr1
-    command: mongod --configsvr --replSet configReplSet --port 27017 --bind_ip_all
+    command: mongod --configsvr --replSet configReplSet --port 27027 --bind_ip_all
     networks:
       - mongo-cluster
     volumes:
@@ -14,7 +14,7 @@ services:
   configsvr2:
     image: mongo:4.4
     container_name: configsvr2
-    command: mongod --configsvr --replSet configReplSet --port 27017 --bind_ip_all
+    command: mongod --configsvr --replSet configReplSet --port 27027 --bind_ip_all
     networks:
       - mongo-cluster
     volumes:
@@ -23,7 +23,7 @@ services:
   configsvr3:
     image: mongo:4.4
     container_name: configsvr3
-    command: mongod --configsvr --replSet configReplSet --port 27017 --bind_ip_all
+    command: mongod --configsvr --replSet configReplSet --port 27027 --bind_ip_all
     networks:
       - mongo-cluster
     volumes:
@@ -33,7 +33,7 @@ services:
   shard1-node1:
     image: mongo:4.4
     container_name: shard1-node1
-    command: mongod --shardsvr --replSet shard1 --port 27018 --bind_ip_all
+    command: mongod --shardsvr --replSet shard1 --port 27028 --bind_ip_all
     networks:
       - mongo-cluster
     volumes:
@@ -42,7 +42,7 @@ services:
   shard1-node2:
     image: mongo:4.4
     container_name: shard1-node2
-    command: mongod --shardsvr --replSet shard1 --port 27018 --bind_ip_all
+    command: mongod --shardsvr --replSet shard1 --port 27028 --bind_ip_all
     networks:
       - mongo-cluster
     volumes:
@@ -51,7 +51,7 @@ services:
   shard1-node3:
     image: mongo:4.4
     container_name: shard1-node3
-    command: mongod --shardsvr --replSet shard1 --port 27018 --bind_ip_all
+    command: mongod --shardsvr --replSet shard1 --port 27028 --bind_ip_all
     networks:
       - mongo-cluster
     volumes:
@@ -61,7 +61,7 @@ services:
   shard2-node1:
     image: mongo:4.4
     container_name: shard2-node1
-    command: mongod --shardsvr --replSet shard2 --port 27019 --bind_ip_all
+    command: mongod --shardsvr --replSet shard2 --port 27029 --bind_ip_all
     networks:
       - mongo-cluster
     volumes:
@@ -70,7 +70,7 @@ services:
   shard2-node2:
     image: mongo:4.4
     container_name: shard2-node2
-    command: mongod --shardsvr --replSet shard2 --port 27019 --bind_ip_all
+    command: mongod --shardsvr --replSet shard2 --port 27029 --bind_ip_all
     networks:
       - mongo-cluster
     volumes:
@@ -79,7 +79,7 @@ services:
   shard2-node3:
     image: mongo:4.4
     container_name: shard2-node3
-    command: mongod --shardsvr --replSet shard2 --port 27019 --bind_ip_all
+    command: mongod --shardsvr --replSet shard2 --port 27029 --bind_ip_all
     networks:
       - mongo-cluster
     volumes:
@@ -89,9 +89,9 @@ services:
   mongos:
     image: mongo:4.4
     container_name: mongos
-    command: mongos --configdb configReplSet/configsvr1:27017,configsvr2:27017,configsvr3:27017 --bind_ip_all
+    command: mongos --configdb configReplSet/configsvr1:27027,configsvr2:27027,configsvr3:27027 --bind_ip_all
     ports:
-      - "27017:27017"
+      - "27030:27030"
     networks:
       - mongo-cluster
 
